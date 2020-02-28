@@ -1,16 +1,25 @@
 {
   "extends": "../../resources/tsconfig.base.cjs.json",
   "compilerOptions": {
-    "composite": true,
+    "module": "amd",
+    "moduleResolution": "node",
     "rootDir": "./src",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es5",
+      "es2015.collection",
+      "es2015.promise",
+      "es2015.iterable"
+    ]
   },
   "references": [
     {
-      "path": "../graphql-language-service-interface"
+      "path": "../graphql-languageservice"
     },
     {
-      "path": "../graphql-language-service-parser"
+      "path": "../graphql-language-service-interface"
     },
     {
       "path": "../graphql-language-service-types"
