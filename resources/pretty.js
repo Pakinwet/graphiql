@@ -28,8 +28,6 @@ const { stdout, stderr, status, error } = spawnSync(executable, [
   mode,
   glob,
 ]);
-const out = stdout.toString().trim();
-const err = stderr.toString().trim();
 
 function print(message) {
   if (message) {
@@ -38,6 +36,9 @@ function print(message) {
 }
 
 if (status) {
+  const out = stdout.toString().trim();
+  const err = stderr.toString().trim();
+
   print(out);
   print(err);
   if (check) {
@@ -46,6 +47,6 @@ if (status) {
   }
 }
 if (error) {
-  print('error', error);
+  print(error);
 }
 process.exit(status != null ? status : 1);
